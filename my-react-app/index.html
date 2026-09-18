@@ -2,9 +2,20 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-   <link rel="icon" type="image/svg+xml" href="/Matheth-logo.jpg" />
+    <link rel="icon" type="image/svg+xml" href="/ICONS/Mateth-logo.jpg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>frontend</title>
+    <title>Matheth</title>
+
+    <!-- Import map to fix browser module resolution for MediaPipe -->
+    <script type="importmap">
+      {
+        "imports": {
+          "@mediapipe/hands": "https://cdn.jsdelivr.net/npm/@mediapipe/hands/hands.js",
+          "@mediapipe/camera_utils": "https://cdn.jsdelivr.net/npm/@mediapipe/camera_utils/camera_utils.js",
+          "@mediapipe/drawing_utils": "https://cdn.jsdelivr.net/npm/@mediapipe/drawing_utils/drawing_utils.js"
+        }
+      }
+    </script>
   </head>
   <body>
     <div id="root"></div>
