@@ -1,4 +1,3 @@
-// frontend/vite.config.js
 import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react';
 
@@ -12,6 +11,14 @@ export default defineConfig({
         target: 'http://localhost:5001',
         changeOrigin: true,
         secure: false,
+      },
+    },
+  },
+  build: {
+    rollupOptions: {
+      onwarn(warning, warn) {
+        // Suppress warnings that cause plugin crashes during build
+        return;
       },
     },
   },
