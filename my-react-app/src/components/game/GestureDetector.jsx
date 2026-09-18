@@ -1,10 +1,9 @@
 // frontend/src/components/game/GestureDetector.jsx
 import React, { useEffect, useRef, useState } from 'react';
-import { Hands, HAND_CONNECTIONS } from '@mediapipe/hands';
+// ❌ REMOVE THIS LINE: import { Hands, HAND_CONNECTIONS } from '@mediapipe/hands';
 import { Trophy, Timer, Hand, ArrowRight, RotateCcw, ArrowLeft, Play, Sparkles, Lightbulb } from 'lucide-react';
 import AnswerChoices from './AnswerChoices';
 import { GameTrack } from './GameTrack';
-
 // Outcome thresholds, out of a 10-question level:
 //   0 wrong          -> 'perfect'
 //   1-4 wrong        -> 'partial'  (6-9 correct)
