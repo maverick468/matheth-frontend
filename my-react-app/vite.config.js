@@ -13,9 +13,16 @@ export default defineConfig({
       },
     },
   },
+  // Force Vite to pre-bundle legacy packages like MediaPipe for the browser
+  optimizeDeps: {
+    include: [
+      '@mediapipe/hands',
+      '@mediapipe/camera_utils',
+      '@mediapipe/drawing_utils'
+    ]
+  },
   build: {
     rollupOptions: {
-      // Completely silence and ignore all rollup/bundler warnings and non-fatal logs
       onwarn: () => {},
     },
   },
