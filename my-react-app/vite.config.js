@@ -6,7 +6,6 @@ export default defineConfig({
   server: {
     port: 5173,
     proxy: {
-      // Forwards any request starting with /api to port 5001
       '/api': {
         target: 'http://localhost:5001',
         changeOrigin: true,
@@ -17,8 +16,15 @@ export default defineConfig({
   build: {
     rollupOptions: {
       onwarn(warning, warn) {
-        // Suppress warnings that cause plugin crashes during build
-        return;
+        // Suppress React Fast Refresh and plugin warning errors during build
+        if (
+          warning.plugin === 'vite:react-babel' || 
+          warning.plugin === 'vite:react-refresh' || 
+          warning.code === 'MODULE_LEVEL_DIRECTIVE'
+        ) {
+          return;
+        }
+        warn(warning);
       },
     },
   },
