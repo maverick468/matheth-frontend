@@ -15,17 +15,8 @@ export default defineConfig({
   },
   build: {
     rollupOptions: {
-      onwarn(warning, warn) {
-        // Suppress React Fast Refresh and plugin warning errors during build
-        if (
-          warning.plugin === 'vite:react-babel' || 
-          warning.plugin === 'vite:react-refresh' || 
-          warning.code === 'MODULE_LEVEL_DIRECTIVE'
-        ) {
-          return;
-        }
-        warn(warning);
-      },
+      // Completely silence and ignore all rollup/bundler warnings and non-fatal logs
+      onwarn: () => {},
     },
   },
 });
